@@ -9,21 +9,21 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-body main {
+body .main-container {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 350px;
   flex: 1;
 }
-body main div.detail {
+body .main-container .detail {
   font-weight: bolder;
   font-size: 20px;
   font-style: oblique;
   position: absolute;
-  top: 20%;
+  top: 15%;
 }
-body main div.calculator {
+body .main-container .calculator {
   margin: 5%;
   padding: 1%;
   background-color: rgba(0, 0, 0, 0.7725490196);
@@ -31,48 +31,59 @@ body main div.calculator {
   border-radius: 10%;
   height: auto;
 }
-body main div.calculator div.display {
-  padding: 5%;
-  height: 50%;
+body .main-container .calculator .calculator-text {
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  font-style: italic;
 }
-body main div.calculator div.display input {
-  height: 20%;
+body .main-container .calculator .display {
+  padding: 5%;
+  height: 60%;
+}
+body .main-container .calculator .display input {
   width: 70%;
   border: 2px solid rgb(227, 228, 222);
   text-align: right;
   font-size: 15px;
 }
-body main div.calculator div.display button {
+body .main-container .calculator .display button {
   border-radius: 10%;
+  font-size: 25px;
   font-size: 15px;
   width: 23%;
   color: rgba(0, 0, 0, 0.7725490196);
   background-color: rgb(179, 212, 57);
   border: 1px solid rgb(19, 20, 15);
 }
-body main div.calculator div.display button:hover {
+body .main-container .calculator .display button:hover {
   color: rgb(244, 241, 241);
 }
-body main div.calculator div.display button:active {
+body .main-container .calculator .display button:active {
   background-color: #0d84ec;
 }
-body main div.button {
+body .main-container .button .row-one, body .main-container .button .row-two, body .main-container .button .row-three, body .main-container .button .row-four {
   display: grid;
   grid-template-columns: repeat(4, 20%);
   margin: 5%;
   gap: 5%;
 }
-body main div.button button {
+body .main-container .button button {
   border-radius: 10%;
-  font-size: 15px;
+  font-size: 25px;
   color: white;
   background-color: #0d84ec;
   border: 1px solid rgb(233, 218, 218);
+  border-radius: 25%;
 }
-body main div.button button:hover {
+body .main-container .button .button-equal {
+  background-color: rgb(179, 212, 57);
+}
+body .main-container .button button:hover {
   color: rgb(19, 3, 3);
 }
-body main div.button button:active {
+body .main-container .button button:active {
   background-color: yellow;
 }
 body header, body footer {

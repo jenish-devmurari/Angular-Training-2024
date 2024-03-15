@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Task-3-ToDo-List.css">
+    <title>ToDo List</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="todo-section">
+            <h1 class="todo-text">ToDo List</h1>
+            <input type="text" id="todo-input" placeholder="Write Your List Item Here">
+            <button id="add-todo" onclick="addItemintolist()">Add</button>
+        </div>
+        <div class="list-item">
+            <ul id="todo-list"></ul>
+        </div>
+    </div>
+
+</body>
+
+<script>
+
+    const todoList = document.getElementById("todo-list");
+    const todoinput = document.getElementById("todo-input");
+    const todoadd = document.getElementById("add-todo");
+
+    // function for add todo list item
+    function addItemintolist() {
+        const inputText = todoinput.value.trim();
+        if (inputText !== "") {
+            const li = document.createElement("li");
+            const completebutton = document.createElement("button");
+            const deletebutton = document.createElement("button");
+
+            li.textContent = inputText;
+            li.className = "todo-item";
+            todoList.appendChild(li);
+            todoinput.value = "";
+
+            completebutton.textContent = "Complete";
+            completebutton.className = "item-complete-button";
+            completebutton.style.backgroundColor = "#0EAB3B";
+            li.appendChild(completebutton);
+
+            deletebutton.textContent = "Delete";
+            deletebutton.className = "item-delete-button";
+            deletebutton.style.backgroundColor = "#E83F2B";
+            li.appendChild(deletebutton);
+
+            completebutton.addEventListener("click",function(){
+                itemcomplete(li);
+            });
+
+            deletebutton.addEventListener("click",function(){
+                removeitem(li);
+            });
+
+        }
+    }
+
+    // change the border color red to green after click on complete button
+    function itemcomplete(element) {
+        element.style.borderLeftColor = "rgb(53, 149, 53)";
+        element.style.borderRightColor = "rgb(53, 149, 53)";
+    }
+
+    // delete list item on click of delete button
+    function removeitem(element){
+        element.remove();
+    }
+
+</script>
+
+</html>

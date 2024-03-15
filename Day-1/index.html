@@ -9,41 +9,94 @@
 </head>
 
 <body>
-  <header>Welcome To The World Of Calculator</header>
-  <main>
-     <div class="detail">
-       <p>Perform quick calculations with our user-friendly calculator.</p>
-     </div>
+
+  <header>
+    Welcome To The World Of Calculator
+  </header>
+
+  <main class="main-container">
+
+    <div class="detail">
+      <p>Perform quick calculations with our user-friendly calculator.</p>
+    </div>
+
     <div class="calculator">
-     <b><i><p style="text-align: center; font-size: larger; color: white;">Calculator</p></b></i>
+
+      <p class="calculator-text">Calculator</p>
+
       <div class="display">
         <input type="text" id="result" placeholder="0">
-        <button>Clear</button>
+        <button class="button-clear" onclick="clearDisplay()">Clear</button>
       </div>
+
       <div class="button">
-        <button>7</button>
-        <button>8</button>
-        <button>9</button>
-        <button>/</button>
-        <button>4</button>
-        <button>5</button>
-        <button>6</button>
-        <button>-</button>
-        <button>1</button>
-        <button>2</button>
-        <button>3</button>
-        <button>+</button>
-        <button>.</button>
-        <button>0</button>
-        <button>=</button>
-        <button>*</button>
+
+        <div class="row-one">
+          <button class="button-seven" onclick="display('7')">7</button>
+          <button class="button-eight" onclick="display('8')">8</button>
+          <button class="button-nine" onclick="display('9')">9</button>
+          <button class="button-division" onclick="display('/')">/</button>
+        </div>
+
+        <div class="row-two">
+          <button class="button-four" onclick="display('4')">4</button>
+          <button class="button-five" onclick="display('5')">5</button>
+          <button class="button-six" onclick="display('6')">6</button>
+          <button class="button-substraction" onclick="display('-')">-</button>
+        </div>
+
+        <div class="row-three">
+          <button class="button-one" onclick="display('1')">1</button>
+          <button class="button-two" onclick="display('2')">2</button>
+          <button class="button-three" onclick="display('3')">3</button>
+          <button class="button-addition" onclick="display('+')">+</button>
+        </div>
+
+        <div class="row-four">
+          <button class="button-point" onclick="display('.')">.</button>
+          <button class="button-zero" onclick="display('0')">0</button>
+          <button class="button-equal" onclick="calculate()">=</button>
+          <button class="button-multiplication" onclick="display('*')">*</button>
+        </div>
+
       </div>
     </div>
   </main>
+
   <footer>
-    <p> &copy; 2024 Calculator Website </p>
-    <p><b> Welcome To Bacancy Technology LLP </b> </p>
+
+    <p>
+      &copy; 2024 Jenish Devmurari
+    </p>
+    <p class="footer-text-bacancy">
+      Welcome To Bacancy Technology LLP
+    </p>
+
   </footer>
 </body>
 
+<script>
+
+  function clearDisplay() {
+    document.getElementById("result").value = "";
+  }
+
+  function display(value1) {
+    document.getElementById("result").value += value1;
+  }
+
+  function calculate() {
+    var p = document.getElementById("result").value;
+
+    try {
+      var q = eval(p);
+      document.getElementById("result").value = q;
+    }
+    catch (error) {
+      document.getElementById("result").value = "Error";
+    }
+  }
+
+
+</script>
 </html>
