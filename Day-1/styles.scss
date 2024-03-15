@@ -121,12 +121,20 @@ body {
     background-color: $button-color;
     color: $second-color;
     text-align: center;
-    margin-top: auto;
     font-size: 25px;
   }
 
-  header,footer {
+  header {
     @include common;
+    position: absolute;
+    top: 0;
+    width:100%;
+  }
+  footer{
+    @include common;
+    position: absolute;
+    bottom: 0;
+    width:100%;
   }
 
 

@@ -2,29 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Task-3-ToDo-List.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Task-3-ToDo-List.css" />
     <title>ToDo List</title>
 </head>
 
 <body>
-
     <div class="container">
+
         <div class="todo-section">
             <h1 class="todo-text">ToDo List</h1>
-            <input type="text" id="todo-input" placeholder="Write Your List Item Here">
+            <input type="text" id="todo-input" placeholder="Write Your List Item Here" />
             <button id="add-todo" onclick="addItemintolist()">Add</button>
         </div>
+
         <div class="list-item">
             <ul id="todo-list"></ul>
         </div>
-    </div>
 
+    </div>
 </body>
 
 <script>
-
     const todoList = document.getElementById("todo-list");
     const todoinput = document.getElementById("todo-input");
     const todoadd = document.getElementById("add-todo");
@@ -50,16 +50,16 @@
             deletebutton.textContent = "Delete";
             deletebutton.className = "item-delete-button";
             deletebutton.style.backgroundColor = "#E83F2B";
+            
             li.appendChild(deletebutton);
 
-            completebutton.addEventListener("click",function(){
+            completebutton.addEventListener("click", function () {
                 itemcomplete(li);
             });
 
-            deletebutton.addEventListener("click",function(){
+            deletebutton.addEventListener("click", function () {
                 removeitem(li);
             });
-
         }
     }
 
@@ -70,10 +70,9 @@
     }
 
     // delete list item on click of delete button
-    function removeitem(element){
+    function removeitem(element) {
         element.remove();
     }
-
 </script>
 
 </html>
