@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+body .main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+  flex: 1;
+  background: no-repeat url("back-images.jpg");
+  background-size: cover;
+}
+body .main-container .calculator {
+  margin: 5%;
+  padding: 1%;
+  background: linear-gradient(to left, #0d84ec, yellow);
+  background-color: rgba(0, 0, 0, 0.7725490196);
+  border: 3px solid rgba(0, 0, 0, 0.7725490196);
+  border-radius: 10%;
+}
+body .main-container .calculator .calculator-text {
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  font-style: italic;
+}
+body .main-container .calculator .display {
+  padding: 5%;
+  height: 60%;
+}
+body .main-container .calculator .display input {
+  width: 100%;
+  text-align: right;
+  font-size: 35px;
+  background-color: rgba(0, 0, 0, 0.7725490196);
+  color: white;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+body .main-container .calculator .display #result {
+  height: 80px;
+}
+body .main-container .calculator .display input::placeholder {
+  font-size: 35px;
+}
+body .main-container .button {
+  display: grid;
+}
+body .main-container .button .row-one,
+body .main-container .button .row-two,
+body .main-container .button .row-four, body .main-container .button .row-three {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 5%;
+  gap: 5%;
+}
+body .main-container .button button {
+  font-size: 35px;
+  color: white;
+  background-color: #0d84ec;
+  border: 1px solid white;
+  border-radius: 30%;
+}
+body .main-container .button .button-del,
+body .main-container .button .button-clear,
+body .main-container .button .button-history {
+  font-size: 20px;
+}
+body .main-container .button .button-equal {
+  background-color: rgb(179, 212, 57);
+}
+body .main-container .button .button-equal:hover {
+  background-color: rgb(208, 231, 125);
+}
+body .main-container .button button:hover {
+  background-color: #91c3ef;
+  color: rgb(19, 3, 3);
+}
+body .main-container .button button:active {
+  background-color: yellow;
+}
+body nav {
+  background-color: #0d84ec;
+  color: rgba(0, 0, 0, 0.7725490196);
+  font-size: 25px;
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+body nav .navdiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body nav .navdiv .logo {
+  font-size: 50px;
+  margin-left: 5%;
+}
+body nav .navdiv li {
+  list-style: none;
+  display: inline-block;
+  padding-right: 30px;
+}
+body nav .navdiv li a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7725490196);
+}
+body nav .navdiv li a:hover,
+body nav .navdiv .logo:hover {
+  color: white;
+}
+body footer {
+  background-color: #0d84ec;
+  color: rgba(0, 0, 0, 0.7725490196);
+  font-size: 25px;
+  text-align: center;
+  position: relative;
+  bottom: 0vh;
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar-list li {
+    display: block;
+    padding: 10px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 460px) {
+  .navbar-list li a {
+    display: block;
+    padding: 10px;
+    margin-left: 20px;
+  }
+  [class*=button-] {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=Calculator.css.map */

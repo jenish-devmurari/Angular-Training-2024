@@ -46,7 +46,7 @@ function outest(){
         function inner(){
             console.log(a,b,c); 
             // here first find x in inner function it is not there then it will find in its parent(outer) lexical environment 
-            // x =10 thne b is passed as parameter b = "Hi clousers" then c is not in outer scope then it find in parent(outest) lexical environment
+            // x =10 then b is passed as parameter b = "Hi clousers" then c is not in outer scope then it find in parent(outest) lexical environment
             // c = 12 
             // print 10 Hi clousers 12
         }

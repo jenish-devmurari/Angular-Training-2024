@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Calculator.css">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+  <title>Calculator</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="navdiv">
+        <div class="logo">Calculator</div>
+        <ul class="navbar-list">
+          <li><a href="javascript:void(0)">Home</a></li>
+          <li><a href="javascript:void(1)">About</a></li>
+          <li><a href="javascript:void(2)">Contact-us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main class="main-container">
+
+    <div class="calculator">
+
+      <p class="calculator-text">Calculator</p>
+
+      <div class="display">
+        <input type="text" id="result" placeholder="0">
+      </div>
+
+      <div class="button">
+
+        <div class="row-one">
+          <button class="button-seven" onclick="display('7')">7</button>
+          <button class="button-eight" onclick="display('8')">8</button>
+          <button class="button-nine" onclick="display('9')">9</button>
+          <button class="button-division" onclick="display('/')">/</button>
+          <button class="button-del" onclick="deleteItem()">DEL</button>
+        </div>
+
+        <div class="row-two">
+          <button class="button-four" onclick="display('4')">4</button>
+          <button class="button-five" onclick="display('5')">5</button>
+          <button class="button-six" onclick="display('6')">6</button>
+          <button class="button-substraction" onclick="display('-')">-</button>
+          <button class="button-clear" onclick="clearDisplay()">AC</button>
+        </div>
+
+        <div class="row-three">
+          <button class="button-one" onclick="display('1')">1</button>
+          <button class="button-two" onclick="display('2')">2</button>
+          <button class="button-three" onclick="display('3')">3</button>
+          <button class="button-addition" onclick="display('+')">+</button>
+          <button class="button-history" onclick="history()">H</button>
+        </div>
+
+        <div class="row-four">
+          <button class="button-point" onclick="display('.')">.</button>
+          <button class="button-zero" onclick="display('0')">0</button>
+          <button class="button-percentage" onclick="display('00')">00</button>
+          <button class="button-multiplication" onclick="display('*')">*</button>
+          <button class="button-equal" onclick="calculate()">=</button>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer>
+
+    <p>
+      &copy; 2024 Jenish Devmurari
+    </p>
+    <p class="footer-text-bacancy">
+      Welcome To Bacancy Technology LLP
+    </p>
+
+  </footer>
+</body>
+
+<script>
+
+  let flag = false;
+  const operators = ['+', '-', '*', '/', '.'];
+  let expressiondata = "";
+  let resultdata = "";
+  const record = [];
+
+  const inputbox = document.getElementById("result");
+
+  const clearDisplay = () => {
+    inputbox.value = "";
+  }
+
+  const display = (value1) => {
+
+    if (flag) {
+      inputbox.value = "";
+      flag = false;
+    }
+
+    const oldinput = inputbox.value
+    const lastchar = inputbox.value[inputbox.value.length - 1];
+
+    if (operators.includes(lastchar) && operators.includes(value1)) {
+      const newinput = inputbox.value.slice(0, -1) + value1;
+      expressiondata = newinput;
+      inputbox.value = newinput;
+    } else {
+      const newinput = inputbox.value + value1;
+      expressiondata = newinput;
+      inputbox.value = newinput;
+    }
+
+  };
+
+  const calculate = () => {
+    let ans = inputbox.value;
+    try {
+      let answer = eval(ans);
+      inputbox.value = answer;
+      resultdata = answer;
+      record.push({ "expression": expressiondata, "result": resultdata });
+      expressiondata = "";
+      resultdata = "";
+      flag = true;
+    } catch (error) {
+      inputbox.value = "Error";
+      flag = true;
+    }
+  }
+
+  const deleteItem = () => {
+    let deleteitem = inputbox.value;
+    inputbox.value = deleteitem.slice(0, -1);
+  }
+
+
+  const history = () => {
+    if (record.length == 0) {
+      inputbox.value = "Empty";
+      flag = true;
+    } else {
+      let logdata = "";
+      for (let i = 0; i < record.length; i++) {
+        logdata += "" + record[i]["expression"] + "=" + record[i]["result"] + ",";
+      }
+      inputbox.value = logdata;
+      flag = true;
+    }
+  }
+
+</script>
+
+</html>

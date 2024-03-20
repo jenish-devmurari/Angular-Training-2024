@@ -1,0 +1,187 @@
+$button-color: #0d84ec;
+$second-color: #000000c5;
+$text-color: white;
+$onclick-color: yellow;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin button-common {
+  font-size: 35px;
+}
+
+@mixin grid-property-of-button {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 5%;
+  gap: 5%;
+}
+
+@mixin common {
+  background-color: $button-color;
+  color: $second-color;
+  font-size: 25px;
+}
+
+body {
+  font-family: "Times New Roman", Times, serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .main-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 350px;
+    flex: 1;
+    background: no-repeat url("back-images.jpg");
+    background-size: cover;
+  
+
+    .calculator {
+      margin: 5%;
+      padding: 1%;
+      background: linear-gradient(to left, $button-color, $onclick-color);
+      background-color: $second-color;
+      border: 3px solid #{$second-color};
+      border-radius: 10%;
+
+      .calculator-text {
+        font-size: 25px;
+        font-weight: bold;
+        color: $text-color;
+        text-align: center;
+        font-style: italic;
+      }
+
+      .display {
+        padding: 5%;
+        height: 60%;
+
+        input {
+          width: 100%;
+          text-align: right;
+          font-size: 35px;
+          background-color: $second-color;
+          color: $text-color;
+          border: 2px solid $text-color;
+          border-radius: 10px;
+        }
+        #result{
+          height : 80px;
+        }
+        input::placeholder {
+          font-size: 35px;
+        }
+      }
+    }
+
+    .button {
+      display: grid;
+      .row-one,
+      .row-two,
+      .row-four ,.row-three{
+        @include grid-property-of-button;
+      }
+      
+
+      button {
+        @include button-common;
+        color: $text-color;
+        background-color: $button-color;
+        border: 1px solid $text-color;
+        border-radius: 30%;
+      }
+      .button-del,
+      .button-clear,
+      .button-history {
+        font-size: 20px;
+      }
+      .button-equal {
+        $button-color: rgb(179, 212, 57);
+        background-color: $button-color;
+      }
+      .button-equal:hover {
+        $onclick-color: rgb(208, 231, 125);
+        background-color: $onclick-color;
+      }
+      button:hover {
+        $button-color: #91c3ef;
+        background-color: $button-color;
+        color: rgb(19, 3, 3);
+      }
+      button:active {
+        background-color: $onclick-color;
+      }
+    }
+  }
+
+  nav {
+    @include common;
+    position: relative;
+    top: 0;
+    width: 100%;
+
+    .navdiv {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .logo {
+        font-size: 50px;
+        margin-left: 5%;
+      }
+
+      li {
+        list-style: none;
+        display: inline-block;
+        padding-right: 30px;
+        a {
+          text-decoration: none;
+          color:$second-color;
+        }
+      }
+
+      li a:hover,
+      .logo:hover {
+        color: $text-color;
+      }
+    }
+  }
+
+  footer {
+    @include common;
+    text-align: center;
+    position: relative;
+    bottom: 0vh;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .navbar-list li {
+    display: block;
+    padding: 10px;
+    text-align: center;
+  }
+
+}
+
+@media only screen and (max-width: 460px) {
+  .navbar-list li a{
+    display: block;
+    padding: 10px;
+    margin-left: 20px;
+  }
+
+  [class*="button-"] {
+    width: 100%;
+  }
+
+}
+
+
+
