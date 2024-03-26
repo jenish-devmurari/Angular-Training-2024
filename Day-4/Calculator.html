@@ -30,7 +30,7 @@
       <p class="calculator-text">Calculator</p>
 
       <div class="display">
-        <input type="text" id="result" placeholder="0">
+        <input type="text" id="result" placeholder="0" readonly>
       </div>
 
       <div class="button">
@@ -60,7 +60,7 @@
         </div>
 
         <div class="row-four">
-          <button class="button-point" onclick="display('.')">.</button>
+          <button class="button-point" onclick="dot('.')">.</button>
           <button class="button-zero" onclick="display('0')">0</button>
           <button class="button-percentage" onclick="display('00')">00</button>
           <button class="button-multiplication" onclick="display('*')">*</button>
@@ -82,79 +82,5 @@
 
   </footer>
 </body>
-
-<script>
-
-  let flag = false;
-  const operators = ['+', '-', '*', '/', '.'];
-  let expressiondata = "";
-  let resultdata = "";
-  const record = [];
-
-  const inputbox = document.getElementById("result");
-
-  const clearDisplay = () => {
-    inputbox.value = "";
-  }
-
-  const display = (value1) => {
-
-    if (flag) {
-      inputbox.value = "";
-      flag = false;
-    }
-
-    const oldinput = inputbox.value
-    const lastchar = inputbox.value[inputbox.value.length - 1];
-
-    if (operators.includes(lastchar) && operators.includes(value1)) {
-      const newinput = inputbox.value.slice(0, -1) + value1;
-      expressiondata = newinput;
-      inputbox.value = newinput;
-    } else {
-      const newinput = inputbox.value + value1;
-      expressiondata = newinput;
-      inputbox.value = newinput;
-    }
-
-  };
-
-  const calculate = () => {
-    let ans = inputbox.value;
-    try {
-      let answer = eval(ans);
-      inputbox.value = answer;
-      resultdata = answer;
-      record.push({ "expression": expressiondata, "result": resultdata });
-      expressiondata = "";
-      resultdata = "";
-      flag = true;
-    } catch (error) {
-      inputbox.value = "Error";
-      flag = true;
-    }
-  }
-
-  const deleteItem = () => {
-    let deleteitem = inputbox.value;
-    inputbox.value = deleteitem.slice(0, -1);
-  }
-
-
-  const history = () => {
-    if (record.length == 0) {
-      inputbox.value = "Empty";
-      flag = true;
-    } else {
-      let logdata = "";
-      for (let i = 0; i < record.length; i++) {
-        logdata += "" + record[i]["expression"] + "=" + record[i]["result"] + ",";
-      }
-      inputbox.value = logdata;
-      flag = true;
-    }
-  }
-
-</script>
-
+<script src="calculator.js"></script>
 </html>
