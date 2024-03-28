@@ -9,7 +9,7 @@ interface personInfo {
         street: string;
         Pincode: number;
     };
-    contact?: (string | number)[];
+    contact : (string | number)[];
     getFullName(): string;
     getAddress(): string;
     getContact(): string;
@@ -49,6 +49,7 @@ const person1: personInfo = {
         street: "Surat-A",
         Pincode: 395006
     },
+    contact: ['karan.devmurari@bacan.com', 9328302017],
     getFullName() {
         return `${this.firstName} ${this.lastName}`;
     },
